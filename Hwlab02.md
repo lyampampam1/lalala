@@ -2,7 +2,7 @@
 
 ### Part I
 
-- [ ] 1. Создайте пустой репозиторий на сервисе github.com (или gitlab.com, или bitbucket.com).
+- [x] 1. Создайте пустой репозиторий на сервисе github.com (или gitlab.com, или bitbucket.com).
  ```sh
  https://github.com/Robert29000/timp-lab-02
  ```
