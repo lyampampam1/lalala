@@ -33,28 +33,89 @@
  ```
 - [x] 5. Закоммитьте изменения с *осмысленным* сообщением.
  ```sh
- ~/timp-lab-02 $ git commit -m "Created cpp file"
+ ~/timp-lab-02 $ git commit -m "Added new cpp file"
  ```
-6. Изменитьте исходный код так, чтобы программа через стандартный поток ввода запрашивалось имя пользователя. А в стандартный поток вывода печаталось сообщение `Hello world from @name`, где `@name` имя пользователя.
-7. Закоммитьте новую версию программы. Почему не надо добавлять файл повторно `git add`?
-8. Запуште изменения в удалёный репозиторий.
-9. Проверьте, что история коммитов доступна в удалёный репозитории.
+- [x] 6. Изменитьте исходный код так, чтобы программа через стандартный поток ввода запрашивалось имя пользователя. А в стандартный поток вывода печаталось сообщение `Hello world from @name`, где `@name` имя пользователя.
+ ```sh
+  ~/timp-lab-02 $ alias edit=subl
+  ~/timp-lab-02 $ edit "Hello world.cpp"
+  #include <iostream>
+  #include <string>
+  
+  using namespace std;
+  int main(int argc, char** argv){
+   string name;
+   cin >> name;
+   cout << "Hello world from " << name << endl;
+  }
+ ```
+- [x] 7. Закоммитьте новую версию программы. Повторно писать команду `git add` не надо, т.к. файл уже был добавлен в шаге **4**.
+ ```sh
+ ~/timp-lab-02 $ git commit -a -m "Changed cpp file"
+ ```
+- [x] 8. Запуште изменения в удалёный репозиторий.
+ ```sh
+ ~/timp-lab-02 $ git push -u origin master
+ ```
+- [x] 9. История коммитов доступна в удалёном репозитории.
 
 ### Part II
 
 **Note:** *Работать продолжайте с теми же репоззиториями, что и в первой части задания.*
-1. В локальной копии репозитория создайте локальную ветку `patch1`.
-2. Внесите изменения в ветке `patch1` по исправлению кода и избавления от `using namespace std;`.
-3. **commit**, **push** локальную ветку в удалённый репозиторий.
-4. Проверьте, что ветка `patch1` доступна в удалёный репозитории.
-5. Создайте pull-request `patch1 -> master`.
-6. В локальной копии в ветке `patch1` добавьте в исходный код комментарии.
-7. **commit**, **push**.
-8. Проверьте, что новые изменения есть в созданном на **шаге 5** pull-request
-9. В удалённый репозитории выполните  слияние PR `patch1 -> master` и удалите ветку `patch1` в удаленном репозитории.
-10. Локально выполните **pull**.
-11. С помощью команды **git log** просмотрите историю в локальной версии ветки `master`.
-12. Удалите локальную ветку `patch1`.
+- [x] 1. В локальной копии репозитория создайте локальную ветку `patch1`.
+ ```sh
+ ~/timp-lab-02 $ git checkout -b patch1
+ ```
+- [x] 2. Внесите изменения в ветке `patch1` по исправлению кода и избавления от `using namespace std;`.
+ ```sh
+ ~/timp-lab-02 $ edit "Hello world.cpp"
+ #include <iostream>
+ #include <string>
+  
+ int main(int argc, char** argv){
+  string name;
+  std::cin >> name;
+  std::cout << "Hello world from " << name << std::endl;
+ }
+ ```
+- [x] 3. **commit**, **push** локальную ветку в удалённый репозиторий.
+ ```sh
+ ~/timp-lab-02 $ git commit -a -m "Fixed cpp file"
+ ~/timp-lab-02 $ git push -u origin patch1
+ ```
+- [x] 4. Ветка `patch1` доступна в удалёный репозитории.
+- [x] 5. Создадим pull-request `patch1 -> master`.
+- [x] 6. В локальной копии в ветке `patch1` добавьте в исходный код комментарии.
+ ```sh
+ ~/timp-lab-02 $ edit "Hello world.cpp"
+ #include <iostream>
+ #include <string>
+  
+ int main(int argc, char** argv){
+  string name; \\ User name
+  std::cin >> name; \\ Input user name
+  std::cout << "Hello world from " << name << std::endl;
+ } 
+ ```
+- [x] 7. **commit**, **push**.
+ ```sh
+ ~/timp-lab-02 $ git commit -a -m "Added comments"
+ ~/timp-lab-02 $ git push -u origin patch1
+ ```
+- [x] 8. Новые изменения есть в созданном на **шаге 5** pull-request
+- [x] 9. В удалённый репозитории выполните  слияние PR `patch1 -> master` и удалите ветку `patch1` в удаленном репозитории.
+- [x] 10. Локально выполните **pull**.
+ ```sh
+ ~/timp-lab-02 $ git pull origin
+ ```
+- [x] 11. С помощью команды **git log** просмотрите историю в локальной версии ветки `master`.
+ ```sh
+ ~/timp-lab-02 $ git log
+ ```
+- [x] 12. Удалите локальную ветку `patch1`.
+ ```sh
+ ~/timp-lab-02 $ git branch -d patch1
+ ```
 
 ### Part III
 
